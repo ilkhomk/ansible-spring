@@ -2,8 +2,6 @@
 - hosts: all
 
   tasks:
-  - name: Install Maven
-    args:
-    chdir: /var/www/spring-petclinic/
-    shell: " ./mvnw package "
+  - name: Install Maven 
+    shell: " /var/www/spring-petclinic/ && ./mvnw package "
     
