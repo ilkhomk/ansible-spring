@@ -1,6 +1,9 @@
 ---
-- name: Install Flaskex
+- name: Install Spring-pet
   hosts: all
+  user: centos
+  become: yes
+  become_method: sudo
 
   tasks:
   - name: Install prerequisites
@@ -22,9 +25,10 @@
       version: "{{ spring_branch }}"
       dest: /var/www/spring-petclinic/
 
-  - name: Install Package
+  - name: Install Maven
     shell: " ./mvnw package "
   
-  - name: Start Flaskex
-    shell: "nohup python3 /var/www/Flaskex/app.py & "
-    
+  - name: Start App
+    shell: "mv target/*.jar /var/www/spring-petclinc/target/app.jar &"
+    shell: "nohup java -jar app.jar /var/www/spring-petclinic/target &"
+
