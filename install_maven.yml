@@ -3,5 +3,5 @@
 
   tasks:
   - name: Install Maven 
-    shell: " /var/www/spring-petclinic/ && ./mvnw package "
+    shell: " cd /var/www/spring-petclinic/ && ./mvnw package "
     
