@@ -3,5 +3,4 @@
 
   tasks:
   - name: Starting Spring-Petclinic Java
-    shell: "nohup java -jar /var/www/spring-petclinic/target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar
- &"
+    shell: "nohup java -jar /var/www/spring-petclinic/target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar &"
