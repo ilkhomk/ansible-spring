@@ -1,0 +1,11 @@
+---
+- hosts: all
+
+  tasks:
+  - name: Install prerequisites
+    package:
+      name:
+      - epel-release
+      - git
+      state: present
+    

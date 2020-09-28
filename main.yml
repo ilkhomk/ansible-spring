@@ -1,0 +1,30 @@
+---
+- name: Install Flaskex
+  hosts: all
+
+  tasks:
+  - name: Install prerequisites
+    package:
+      name:
+      - epel-release
+      - git
+      state: present
+
+  - name: Install Java
+    package:
+      name: 
+      - java-1.8.0-openjdk-devel
+      state: present
+
+  - name: Pull spring-petclinic
+    git:
+      repo: "{{ spring_repo }}"
+      version: "{{ spring_branch }}"
+      dest: /var/www/spring-petclinic/
+
+  - name: Install Package
+    shell: " ./mvnw package "
+  
+  - name: Start Flaskex
+    shell: "nohup python3 /var/www/Flaskex/app.py & "
+    
